@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>IP Calculator</title>
+  </head>
+
+  <body>
+    <h2>IP Calculator</h2>
+    <form action="/action_page.php">
+      <label for="fname">IP adress(your/your proxy):</label><br>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Mask: </label><br>
+      <input type="text" id="lname" name="lname"><br><br>
+      <button type="submit" onclick="main()">Submit</button>
+    </form>
+    <table>
+      <tbody>
+        <tr>
+          <th>&nbsp;<th>
+          <th>decimal</th>
+          <th>&nbsp;<th>
+          <th>binary</th>
+          <th>&nbsp;</th>
+        </tr>
+        <tr>
+          <th>IP adress<th>
+          <th>192.168.1.2</th>
+          <th>&nbsp;<th>
+          <th>11000000.10101000.00000001</th>
+          <th>.00000010</th>
+        </tr>
+        <tr>
+          <th>Mask<th>
+          <th>192.168.1.2</th>
+          <th>&nbsp;<th>
+          <th>11000000.10101000.00000001</th>
+          <th>.00000010</th>
+        </tr>
+        <tr>
+          <th>Network adress<th>
+          <th>192.168.1.2</th>
+          <th>&nbsp;<th>
+          <th>11000000.10101000.00000001</th>
+          <th>.00000010</th>
+        </tr>
+        <tr>
+          <th>Bradcast adress<th>
+          <th>192.168.1.2</th>
+          <th>&nbsp;<th>
+          <th>11000000.10101000.00000001</th>
+          <th>.00000010</th>
+        </tr>
+        <tr>
+          <th>Network hosts<th>
+          <th>192.168.1.2</th>
+          <th>&nbsp;<th>
+          <th>11000000.10101000.00000001</th>
+          <th>.00000010</th>
+        </tr>
+        <tr>
+          <th>First host<th>
+          <th>192.168.1.2</th>
+          <th>&nbsp;<th>
+          <th>11000000.10101000.00000001</th>
+          <th>.00000010</th>
+        </tr>
+        <tr>
+          <th>Last host<th>
+          <th>192.168.1.2</th>
+          <th>&nbsp;<th>
+          <th>11000000.10101000.00000001</th>
+          <th>.00000010</th>
+        </tr>
+      </tbody>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>
