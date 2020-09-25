@@ -1,15 +1,14 @@
 function Main()
 {
-  var ip = document.getElementById('ipAdress').value;
+  var ip = document.getElementById('ipAddress').value;
   var address = ip.split(".");
   var fullAddr = []
   for(i = 0; i < address.length; i++)
   {
     fullAddr.push(ConvertToBinary(address[i]));
   }
-  fullAddr.reverse();
-  var ready = fullAddr.join('.');
-  document.getElementById('decAddresTh').innerHTML = ready;
+  var ready = (fullAddr.join(".")).replace(",", "");
+  document.getElementById('binAddressTh').innerHTML = ready;
 }
 
 function ConvertToBinary(num)
@@ -19,6 +18,15 @@ function ConvertToBinary(num)
   {
     readyNum.push(num % 2);
     num = num / 2;
+    num = Number((num.toString()).split(".")[0])
   }
-  return readyNum.reverse().toString();
+  var arrayLength = readyNum.length;
+  if(arrayLength < 8)
+  {
+    for(j = 1; j <= 8 - arrayLength; j++)
+    {
+        readyNum.push(0);
+    }
+  }
+  return readyNum.reverse();
 }
