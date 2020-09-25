@@ -8,12 +8,11 @@
 
   <body>
     <h2>IP Calculator</h2>
+    <a>by project-MPK</a><br><br>
     <form action="/action_page.php">
       <label for="fname">IP adress(your/your proxy):</label><br>
-      <input type="text" id="fname" name="fname"><br><br>
-      <label for="lname">Mask: </label><br>
-      <input type="text" id="lname" name="lname"><br><br>
-      <button type="submit" onclick="main()">Submit</button>
+      <input type="text" id="ipAdress" name="ipAdress"><br><br>
+      <button type="submit" onclick="Main()">Submit</button>
     </form>
     <table>
       <tbody>
@@ -26,7 +25,7 @@
         </tr>
         <tr>
           <th>IP adress<th>
-          <th>192.168.1.2</th>
+          <th id="decAddresTh">192.168.1.2</th>
           <th>&nbsp;<th>
           <th>11000000.10101000.00000001</th>
           <th>.00000010</th>
