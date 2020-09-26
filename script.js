@@ -5,9 +5,10 @@ function Main()
   var fullAddr = []
   for(i = 0; i < address.length; i++)
   {
-    fullAddr.push(ConvertToBinary(address[i]));
+    fullAddr.push(ConvertToBinary(Number(address[i])).join(""));
   }
   var ready = (fullAddr.join(".")).replace(",", "");
+  document.getElementById('decAddressTh').innerHTML = ip;
   document.getElementById('binAddressTh').innerHTML = ready;
 }
 
