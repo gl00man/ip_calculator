@@ -7,11 +7,13 @@
   </head>
 
   <body>
-    <h2>IP Calculator</h2>
-    <a>by project-MPK</a><br><br>
+    <div id="wrapper">
+      <header>
+        <h2>IPv4 Calculator</h2>
+      </header>
     <form action="/action_page.php">
-      <label for="fname">IP adress(your/your proxy):</label><br>
-      <input type="text" id="ipAddress" name="ipAdress"><br><br>
+      <label for="fname">IPv4 adress(your/your proxy):</label><br>
+      <input type="text" id="ipAddress" name="ipAdress" placeholder="ADDRESS"><br><br>
       <button type="submit" onclick="Main()">Submit</button>
     </form>
     <table>
@@ -31,9 +33,9 @@
         </tr>
         <tr>
           <th>Mask<th>
-          <th>null</th>
+          <th id="decMaskTh">null</th>
           <th>&nbsp;<th>
-          <th>null</th>
+          <th id="binMaskTh">null</th>
         </tr>
         <tr>
           <th>Network adress<th>
@@ -67,6 +69,9 @@
         </tr>
       </tbody>
     </table>
+    <br><br><br><br>
+    <footer> © Wszelkie prawa zastrzeżone </footer>
     <script src="script.js"></script>
+  </div>
   </body>
 </html>
