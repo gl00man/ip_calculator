@@ -1,10 +1,12 @@
 function Main()
 {
-  var input = document.getElementById('ipAddress').value
+  var input = document.getElementById('ipAddress').value;
   if(input != " " && input != "")
   {
-  FillIpAdress(input);
-  FillMask(input);
+  var ip = FillIpAdress(input);
+  var mask = FillMask(input);
+  FillNetAddr(ip, mask);
+  FillBroadAddr(ip, mask);
   }
 }
 
@@ -19,6 +21,7 @@ function FillIpAdress(ip)
   var ready = (fullAddr.join(".")).replace(",", "");
   document.getElementById('decAddressTh').innerHTML = ip;
   document.getElementById('binAddressTh').innerHTML = ready;
+  return ready;
 }
 
 function FillMask(ip)
@@ -26,18 +29,24 @@ function FillMask(ip)
   var ip = document.getElementById('ipAddress').value;
   if(Number(ip.split(".")[0]) >= 1 && Number(ip.split(".")[0]) <= 126)
   {
+    var mask = "11111111.00000000.00000000.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.0.0.0";
     document.getElementById('binMaskTh').innerHTML = "11111111.0.0.0";
+    return mask;
   }
   else if(Number(ip.split(".")[0]) >= 128 && Number(ip.split(".")[0]) <= 191)
   {
+    var mask = "11111111.11111111.00000000.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.255.0.0";
     document.getElementById('binMaskTh').innerHTML = "11111111.11111111.0.0";
+    return mask;
   }
   else if(Number(ip.split(".")[0]) >= 192 && Number(ip.split(".")[0]) <= 223)
   {
+    var mask = "11111111.11111111.11111111.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.255.255.0";
     document.getElementById('binMaskTh').innerHTML = "11111111.11111111.11111111.0";
+    return mask;
   }
   else if(Number(ip.split(".")[0]) > 223)
   {
@@ -64,4 +73,58 @@ function ConvertToBinary(num)
     }
   }
   return readyNum.reverse();
+}
+
+function FillNetAddr(ip, mask)
+{
+	var ip = ip.split('');
+	var mask = mask.split('');
+	var NetAddr = [];
+
+	for(i = 0; i<=ip.length; i++)
+	{
+		if(ip[i] != ".")
+		{
+			if(i%9 ==0)
+			{
+				NetAddr.push(".")
+			}
+			NetAddr.push(ip[i] * mask[i]);
+		}
+	}	
+	delete NetAddr[0];
+	NetAddr.splice(-1,1);
+	document.getElementById("binNettAddr").innerHTML = NetAddr.join("");
+}
+
+function FillBroadAddr(ip, mask)
+{
+	var ip = ip.split('');
+	var mask = mask.split('');
+	var Broad = []
+
+	for(i = 0; i<=ip.length; i++)
+	{
+		if(i%9 ==0 )
+		{
+			Broad.push(".")
+		}	
+		
+		if(ip[i] != ".")
+		{
+			if(mask[i] == "1")
+			{
+				Broad.push(ip[i]);
+
+			}
+			else if(mask[i] == "0")
+			{
+				
+				Broad.push("1");
+			}
+		}
+		
+	}
+	delete Broad[0];
+	document.getElementById("binBroad").innerHTML = Broad.join("");
 }
