@@ -31,21 +31,21 @@ function FillMask(ip)
   {
     var mask = "11111111.00000000.00000000.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.0.0.0";
-    document.getElementById('binMaskTh').innerHTML = "11111111.0.0.0";
+    document.getElementById('binMaskTh').innerHTML = "11111111.00000000.00000000.00000000";
     return mask;
   }
   else if(Number(ip.split(".")[0]) >= 128 && Number(ip.split(".")[0]) <= 191)
   {
     var mask = "11111111.11111111.00000000.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.255.0.0";
-    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.0.0";
+    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.000000000.000000000";
     return mask;
   }
   else if(Number(ip.split(".")[0]) >= 192 && Number(ip.split(".")[0]) <= 223)
   {
     var mask = "11111111.11111111.11111111.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.255.255.0";
-    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.11111111.0";
+    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.11111111.000000000";
     return mask;
   }
   else if(Number(ip.split(".")[0]) > 223)
@@ -75,6 +75,17 @@ function ConvertToBinary(num)
   return readyNum.reverse();
 }
 
+function ConvertAddressToDecimal(addr)
+{
+  var addr = addr.split(".");
+  var rAddr = [];
+  for(i = 0; i <= addr.length; i++)
+  {
+    rAddr.push((parseInt(addr[i], 2)).toString() + ".");
+  }
+  return rAddr;
+}
+
 function FillNetAddr(ip, mask)
 {
 	var ip = ip.split('');
@@ -91,10 +102,12 @@ function FillNetAddr(ip, mask)
 			}
 			NetAddr.push(ip[i] * mask[i]);
 		}
-	}	
+	}
 	delete NetAddr[0];
 	NetAddr.splice(-1,1);
 	document.getElementById("binNettAddr").innerHTML = NetAddr.join("");
+  var addr = ConvertAddressToDecimal(NetAddr.join("")).join("").replace(",", "");
+  document.getElementById("decNettAddr").innerHTML = addr.substring(0, addr.length - 5);
 }
 
 function FillBroadAddr(ip, mask)
@@ -108,8 +121,8 @@ function FillBroadAddr(ip, mask)
 		if(i%9 ==0 )
 		{
 			Broad.push(".")
-		}	
-		
+		}
+
 		if(ip[i] != ".")
 		{
 			if(mask[i] == "1")
@@ -119,12 +132,14 @@ function FillBroadAddr(ip, mask)
 			}
 			else if(mask[i] == "0")
 			{
-				
+
 				Broad.push("1");
 			}
 		}
-		
+
 	}
 	delete Broad[0];
 	document.getElementById("binBroad").innerHTML = Broad.join("");
+  var addr = ConvertAddressToDecimal(Broad.join("")).join("").replace(",", "");
+  document.getElementById("decBroad").innerHTML = addr.substring(0, addr.length - 5);
 }
