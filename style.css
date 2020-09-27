@@ -4,11 +4,12 @@
   padding: 0;
   font-family: Courier;
   box-sizing: border-box;
+  color: #5377A6;
 }
 
 body
 {
-  background-color: #F2F2F2;
+  background-color: #032859;
 }
 
 #wrapper
@@ -26,6 +27,29 @@ h2
   padding-top: 15px;
 }
 
+label
+{
+  font-size: 17px;
+  text-align: center;
+}
+
+table, th, td 
+{
+  margin-top: 20px;
+  border: 1px solid #5377A6;
+  border-collapse: collapse;
+}
+
+th, td 
+{
+  padding: 15px;
+}
+
+.tableMain
+{
+  font-weight: 300px;
+}
+
 footer
 {
   text-align: center;
@@ -33,38 +57,40 @@ footer
 
 input
 {
-    width: 130px;
+    width: 190px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 1px solid #5377A6;
     border-radius: 4px;
     font-size: 16px;
-    background-color: white;
+    text-align: left;
     background-position: 10px 10px;
+    margin-top: 10px;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    transition: width 0.4s ease-in-out;
-    background-color: #F2F2F2;
+    padding: 12px 20px 12px 20px;
+    background-color: #032859;
+    transition: background-color 1s;
 }
-
+input:hover
+{
+  background-color: #043B82;
+}
 input:focus
 {
-  width: 25%;
+  background-color: #043B82;
 }
 
 button
 {
-  background-color: #F2F2F2;
-  color: black;
-  padding: 5px 10px;
-  border: 1px solid black;
+  background-color: #5377A6;
+  color: #032859;
+  padding: 10px 15px;
+  border: none;
   border-radius: 4px;
+
+  transition: opacity 1s;
 }
 
 button:hover
 {
-  background-color: #F0F0F0;
-  color: black;
-  padding: 5px 10px;
-  border: 1px solid black;
-  border-radius: 4px;
+  opacity: 65%;
 }
