@@ -5,8 +5,10 @@ function Main()
   {
   var ip = FillIpAdress(input);
   var mask = FillMask(input);
-  FillNetAddr(ip, mask);
+  var Rtrnet = FillNetAddr(ip, mask);
   FillBroadAddr(ip, mask);
+  Netho(ip, mask);
+  Frstho(Rtrnet);
   }
 }
 
@@ -108,6 +110,7 @@ function FillNetAddr(ip, mask)
 	document.getElementById("binNettAddr").innerHTML = NetAddr.join("");
   var addr = ConvertAddressToDecimal(NetAddr.join("")).join("").replace(",", "");
   document.getElementById("decNettAddr").innerHTML = addr.substring(0, addr.length - 5);
+  return addr;
 }
 
 function FillBroadAddr(ip, mask)
@@ -142,4 +145,41 @@ function FillBroadAddr(ip, mask)
 	document.getElementById("binBroad").innerHTML = Broad.join("");
   var addr = ConvertAddressToDecimal(Broad.join("")).join("").replace(",", "");
   document.getElementById("decBroad").innerHTML = addr.substring(0, addr.length - 5);
+}
+
+function Netho(ip ,mask)
+{
+
+	 var ip32 = 32;
+	 var mask = mask.split('')
+	 var count = 0;
+
+		 for(a=0; a<=mask.length; a++)
+		 {
+		 	if(mask[a]=="1")
+		 	{
+		 		count += 1;
+		 	}
+		 }
+	 var shrt = ip32 - count;
+	 var neth0st = 2**shrt-2;
+	 //document.write(neth0st);
+	 document.getElementById("neth0st").innerHTML = neth0st;
+	 
+}
+
+function Frstho(Frsth0)
+{
+	var ddd = Frsth0.split(".")
+	
+	ddd.splice(-2,2);
+	//delete ddd[0];
+
+	
+	var paseit = Number(ddd[3]);
+	var a = paseit +1;
+	//document.write(a);
+	ddd.replace(ddd[3] , a)
+
+	document.getElementById("firstho").innerHTML = ddd;
 }
