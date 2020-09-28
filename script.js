@@ -163,23 +163,20 @@ function Netho(ip ,mask)
 		 }
 	 var shrt = ip32 - count;
 	 var neth0st = 2**shrt-2;
-	 //document.write(neth0st);
 	 document.getElementById("neth0st").innerHTML = neth0st;
-	 
+
 }
 
 function Frstho(Frsth0)
 {
 	var ddd = Frsth0.split(".")
-	
-	ddd.splice(-2,2);
-	//delete ddd[0];
 
-	
+	ddd.splice(-2,2);
+
+
 	var paseit = Number(ddd[3]);
 	var a = paseit +1;
-	//document.write(a);
-	ddd.replace(ddd[3] , a)
+	ddd.join().replace(ddd[3] , a);
 
 	document.getElementById("firstho").innerHTML = ddd;
 }
