@@ -9,6 +9,7 @@ function Main()
   FillBroadAddr(ip, mask);
   Netho(ip, mask);
   Frstho(Rtrnet);
+  Lstho(Rtrnet);
   }
 }
 
@@ -167,7 +168,7 @@ function Netho(ip ,mask)
 
 }
 
-function Frstho(Frsth0)
+function Frstho(Frsth0,)
 {
 	var ddd = Frsth0.split(".")
 
@@ -175,8 +176,34 @@ function Frstho(Frsth0)
 
 
 	var paseit = Number(ddd[3]);
-	var a = paseit +1;
-	ddd.join().replace(ddd[3] , a);
+	var a = paseit + 1;
 
-	document.getElementById("firstho").innerHTML = ddd;
+  ddd.splice(-1,1);
+  ddd.push(a);
+  var ddd1 = ddd.join(".")
+
+	document.getElementById("firstho").innerHTML = ddd1;
+}
+
+function Lstho(Lstho, tobinary)
+{
+  var ipip = Lstho.split(".");
+
+  ipip.splice(-3,3);
+  var tff = 254
+  ipip.push(tff);
+  var ipip1 = ipip.join(".")
+
+  document.getElementById("lstho").innerHTML = ipip1;
+  
+  var tbl = [];
+
+  for(i=0; i<=ipip1.split(".").length; i++)
+  {
+
+  tbl.push(ConvertToBinary(ipip1[i].split("."))+".");
+  }
+  var strtbl = tbl.join(",");
+  //strtbl = strtbl.replace(",","");
+  document.getElementById("binlstho").innerHTML = strtbl;
 }
