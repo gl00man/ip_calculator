@@ -41,14 +41,14 @@ function FillMask(ip)
   {
     var mask = "11111111.11111111.00000000.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.255.0.0";
-    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.000000000.000000000";
+    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.00000000.00000000";
     return mask;
   }
   else if(Number(ip.split(".")[0]) >= 192 && Number(ip.split(".")[0]) <= 223)
   {
     var mask = "11111111.11111111.11111111.00000000";
     document.getElementById('decMaskTh').innerHTML = "255.255.255.0";
-    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.11111111.000000000";
+    document.getElementById('binMaskTh').innerHTML = "11111111.11111111.11111111.00000000";
     return mask;
   }
   else if(Number(ip.split(".")[0]) > 223)
@@ -165,10 +165,10 @@ function Netho(ip ,mask)
 	 var shrt = ip32 - count;
 	 var neth0st = 2**shrt-2;
 	 document.getElementById("neth0st").innerHTML = neth0st;
-
+   document.getElementById("binneth0st").innerHTML = ConvertToBinary(neth0st).join("");
 }
 
-function Frstho(Frsth0,)
+function Frstho(Frsth0)
 {
 	var ddd = Frsth0.split(".")
 
@@ -183,6 +183,13 @@ function Frstho(Frsth0,)
   var ddd1 = ddd.join(".")
 
 	document.getElementById("firstho").innerHTML = ddd1;
+
+  var tbl = [];
+  for(i=0; i<ddd1.split(".").length; i++)
+  {
+    tbl.push(ConvertToBinary(Number(ddd1.split(".")[i])).join(""));
+  }
+  document.getElementById("binfirstho").innerHTML = tbl.join(".");
 }
 
 function Lstho(Lstho, tobinary)
@@ -195,15 +202,11 @@ function Lstho(Lstho, tobinary)
   var ipip1 = ipip.join(".")
 
   document.getElementById("lstho").innerHTML = ipip1;
-  
+
   var tbl = [];
-
-  for(i=0; i<=ipip1.split(".").length; i++)
+  for(i=0; i<ipip1.split(".").length; i++)
   {
-
-  tbl.push(ConvertToBinary(ipip1[i].split("."))+".");
+    tbl.push(ConvertToBinary(Number(ipip1.split(".")[i])).join(""));
   }
-  var strtbl = tbl.join(",");
-  //strtbl = strtbl.replace(",","");
-  document.getElementById("binlstho").innerHTML = strtbl;
+  document.getElementById("binlstho").innerHTML = tbl.join(".");
 }
