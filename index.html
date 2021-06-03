@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <title>IP Calculator</title>
-  </head>
 
-  <body>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css\style.css">
+    <title>IP Calculator</title>
+</head>
+
+<body>
     <div id="wrapper">
-      <header>
-		<a id="goBack" href="..\project\project.html"><< goBack</a>
-        <h2>IPv4 Calculator</h2>
-      </header>
-      <label for="fname">IPv4 adress(your/your proxy):</label><br>
-      <input type="text" id="ipAddress" name="ipAdress" placeholder="ADDRESS"><br><br>
-      <button type="submit" onclick="Main()">Submit</button>
-    <table>
-      <tbody>
-        <tr>
-          <th>&nbsp;</th>
-          <th class="tableMain">decimal</th>
-          <th class="tableMain">binary</th>
-        </tr>
-        <tr>
-          <td class="tableMain">IP address</td>
-          <td id="decAddressTh">null</td>
-          <td id="binAddressTh">null</td>
-        </tr>
-        <tr>
-          <td class="tableMain">Mask</td>
-          <td id="decMaskTh">null</td>
-          <td id="binMaskTh">null</td>
-        </tr>
-        <tr>
-          <td class="tableMain">Network address</td>
-          <td id="decNettAddr">null</td>
-          <td id="binNettAddr">null</td>
-        </tr>
-        <tr>
-          <td class="tableMain">Bradcast address</td>
-          <td id="decBroad">null</td>
-          <td id="binBroad">null</td>
-        </tr>
-        <tr>
-          <td class="tableMain">Network hosts</td>
-          <td id="neth0st">null</td>
-          <td id="binneth0st">-</td>
-        </tr>
-        <tr>
-          <td class="tableMain">First host</td>
-          <td id="firstho">null</td>
-          <td id="binfirstho">-</td>
-        </tr>
-        <tr>
-          <td class="tableMain">Last host</td>
-          <td id="lstho">null</td>
-          <td id="binlstho">null</td>
-        </tr>
-      </tbody>
-    </table>
-    <br><br><br><br>
-    <footer> © Wszelkie prawa zastrzeżone </footer>
-    <script src="script.js"></script>
-  </div>
-  </body>
+        <header>
+            <a id="goBack" href="..\project\project.html">&lt;&lt; goBack</a>
+            <h2>IPv4 Calculator</h2>
+        </header>
+        <label for="fname">IPv4 address(your/your proxy):</label><br>
+        <input type="text" id="ipAddress" name="ipAddress" placeholder="ADDRESS"><br><br>
+        <button type="submit" onclick="Main()">Submit</button>
+        <table>
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th class="tableMain">decimal</th>
+                    <th class="tableMain">binary</th>
+                </tr>
+                <tr>
+                    <td class="tableMain">IP address</td>
+                    <td id="decAddressTh">null</td>
+                    <td id="binAddressTh">null</td>
+                </tr>
+                <tr>
+                    <td class="tableMain">Mask</td>
+                    <td id="decMaskTh">null</td>
+                    <td id="binMaskTh">null</td>
+                </tr>
+                <tr>
+                    <td class="tableMain">Network address</td>
+                    <td id="decNettAddr">null</td>
+                    <td id="binNettAddr">null</td>
+                </tr>
+                <tr>
+                    <td class="tableMain">Bradcast address</td>
+                    <td id="decBroad">null</td>
+                    <td id="binBroad">null</td>
+                </tr>
+                <tr>
+                    <td class="tableMain">Network hosts</td>
+                    <td id="neth0st">null</td>
+                    <td id="binneth0st">-</td>
+                </tr>
+                <tr>
+                    <td class="tableMain">First host</td>
+                    <td id="firstho">null</td>
+                    <td id="binfirstho">-</td>
+                </tr>
+                <tr>
+                    <td class="tableMain">Last host</td>
+                    <td id="lstho">null</td>
+                    <td id="binlstho">null</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br><br><br>
+        <!-- Co jest -->
+        <footer> &copy; Wszelkie prawa zastrzeżone </footer>
+        <script src="js/script.js"></script>
+    </div>
+</body>
+
 </html>
